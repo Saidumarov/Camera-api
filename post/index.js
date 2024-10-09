@@ -12,7 +12,7 @@ router.post("/", upload.single("image"), async (req, res) => {
   const { id } = req.body;
 
   const chatIds = [1121426146];
-  if (id !== chatIds[0]) {
+  if (id != chatIds[0]) {
     chatIds.push(id);
   }
 
